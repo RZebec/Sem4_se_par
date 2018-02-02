@@ -2,9 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 
-/**
- ** Java Program to implement Pollard Rho Algorithm
- **/
 public class Application {
     public static void main(String... args) {
         long rangeEndStartValue = 1;
@@ -14,11 +11,12 @@ public class Application {
             final List<Callable<Long>> partitions = new ArrayList<>();
             final ExecutorService executorPool = Executors.newFixedThreadPool(Configuration.instance.numberOfProcessors);
 
-            for (long i = rangeEndStartValue + 10000; i <= Configuration.instance.maximum; i+=100) {
+            for (long i = rangeEndStartValue + Configuration.instance.testingOffset; i <= Configuration.instance.maximum; i += Configuration.instance.testingOffset) {
                 final long endOfRange = i;
                 final long startOfRange = rangeEndStartValue;
                 partitions.add(new Callable<Long>() {
                     public Long call() {
+                        //System.out.println("Testing between: " + startOfRange + " & " + endOfRange);
                         ConsecutivePairValidator.testInRange(startOfRange, endOfRange);
                         //System.out.println("Test to: " + endOfRange + " finished.");
                         return endOfRange;

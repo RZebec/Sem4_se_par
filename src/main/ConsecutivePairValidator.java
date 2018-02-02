@@ -2,7 +2,6 @@ import java.util.stream.LongStream;
 
 public class ConsecutivePairValidator
 {
-    /** Check if num is prime **/
     public static boolean isPrime(long N)
     {
         /**
@@ -31,14 +30,17 @@ public class ConsecutivePairValidator
         return biggestPrimeFactor(firstConsecutiveNumber) < Math.log(firstConsecutiveNumber) && biggestPrimeFactor(secondConsecutiveNumber) < Math.log(secondConsecutiveNumber);
     }
 
-    private static long biggestPrimeFactor(long N) {
-        long biggestDivisor;
-        for (biggestDivisor = 2; biggestDivisor <= N; biggestDivisor++) {
-            if (N % biggestDivisor == 0) {
-                N /= biggestDivisor;
-                biggestDivisor--;
+    private static long biggestPrimeFactor(long n) {
+        long result = n;
+        for (long i = 2; (i*i)<= n; i++) {
+            while (n % i == 0) {
+                result = i;
+                n = n / i;
             }
         }
-        return biggestDivisor;
+        if(n > 1)
+            return n;
+        return result;
+
     }
 }
