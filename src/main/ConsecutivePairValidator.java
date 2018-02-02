@@ -1,16 +1,13 @@
-import java.util.stream.LongStream;
-
 public class ConsecutivePairValidator
 {
     public static boolean isPrime(long N)
     {
-        /**
         for (int i = 2; i <= Math.sqrt(N); i++)
             if (N % i == 0)
                 return false;
         return true;
-         */
-        return N > 1 && LongStream.range(2,(int)Math.sqrt(N)).noneMatch(index -> N % index == 0);
+
+        //return N > 1 && LongStream.range(2,(int)Math.sqrt(N)).noneMatch(index -> N % index == 0);
     }
 
     public static void testInRange(long from, long end) {
