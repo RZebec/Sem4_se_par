@@ -1,18 +1,28 @@
+/**
+ * Class for the consecutive pair validator.
+ */
 public class ConsecutivePairValidator
 {
+    /**
+     * Testing if the number is a prime number.
+     * @param N A Number.
+     * @return Boolean indicating if the number is a prime number.
+     */
     public static boolean isPrime(long N)
     {
         for (int i = 2; i <= Math.sqrt(N); i++)
             if (N % i == 0)
-                return false;
+               return false;
         return true;
-
-        //return N > 1 && LongStream.range(2,(int)Math.sqrt(N)).noneMatch(index -> N % index == 0);
     }
 
+    /**
+     * Searching for the consecutive pairs in a given range, example: from 1000 to 2000.
+     * @param from The starting value of the range.
+     * @param end The ending value of the range.
+     */
     public static void testInRange(long from, long end) {
         for(long i = from; i < end; i++) {
-            //System.out.println("Testing Numbers: " + i + " & " + (i + 1));
             if(isPrime(i) || isPrime(i+1)) {
                 continue;
             }
@@ -23,10 +33,21 @@ public class ConsecutivePairValidator
         }
     }
 
+    /**
+     * Testing if the natural logarithm of the two consecutive numbers are bigger than their biggest prime factor.
+     * @param firstConsecutiveNumber The first consecutive number.
+     * @param secondConsecutiveNumber The seconds consecutive number.
+     * @return Boolean indicating if the natural logarithm of the two consecutive numbers are bigger than their biggest prime factor.
+     */
     private static boolean testForNaturalLogarithm(long firstConsecutiveNumber, long secondConsecutiveNumber) {
         return biggestPrimeFactor(firstConsecutiveNumber) < Math.log(firstConsecutiveNumber) && biggestPrimeFactor(secondConsecutiveNumber) < Math.log(secondConsecutiveNumber);
     }
 
+    /**
+     * Finds the biggest prime factor of a number.
+     * @param n The number.
+     * @return The biggest prime factor.
+     */
     private static long biggestPrimeFactor(long n) {
         long result = n;
         for (long i = 2; (i*i)<= n; i++) {
