@@ -10,7 +10,7 @@ public enum Configuration {
     /**
      * The offset to spread the testing ranges between the threads.
      */
-    public final int testingOffset = 10000;
+    public final int testingOffset = 100;
     /**
      * The value at witch the process will timeout.
      */
