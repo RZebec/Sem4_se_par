@@ -8,9 +8,8 @@ public class ConsecutivePairValidator
      * @param N A Number.
      * @return Boolean indicating if the number is a prime number.
      */
-    public static boolean isPrime(long N)
-    {
-        for (int i = 2; i <= Math.sqrt(N); i++)
+    public static boolean isPrime(long N) {
+        for (long i = 2; i <= Math.sqrt(N); i++)
             if (N % i == 0)
                return false;
         return true;
@@ -59,6 +58,5 @@ public class ConsecutivePairValidator
         if(n > 1)
             return n;
         return result;
-
     }
 }
