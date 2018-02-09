@@ -26,8 +26,7 @@ public class ConsecutivePairValidator
                 continue;
             }
             if(testForNaturalLogarithm(i, i+1)) {
-                System.out.println(i + " & " + (i + 1));
-                System.out.println(biggestPrimeFactor(i) + " < " + Math.log(i) + " & " + biggestPrimeFactor(i + 1) + " < " + Math.log(i + 1));
+                System.out.println(i + " & " + (i+1));
             }
         }
     }
@@ -38,7 +37,7 @@ public class ConsecutivePairValidator
      * @param secondConsecutiveNumber The seconds consecutive number.
      * @return Boolean indicating if the natural logarithm of the two consecutive numbers are bigger than their biggest prime factor.
      */
-    private static boolean testForNaturalLogarithm(long firstConsecutiveNumber, long secondConsecutiveNumber) {
+    public static boolean testForNaturalLogarithm(long firstConsecutiveNumber, long secondConsecutiveNumber) {
         return biggestPrimeFactor(firstConsecutiveNumber) < Math.log(firstConsecutiveNumber) && biggestPrimeFactor(secondConsecutiveNumber) < Math.log(secondConsecutiveNumber);
     }
 
@@ -47,7 +46,7 @@ public class ConsecutivePairValidator
      * @param n The number.
      * @return The biggest prime factor.
      */
-    private static long biggestPrimeFactor(long n) {
+    public static long biggestPrimeFactor(long n) {
         long result = n;
         for (long i = 2; (i*i)<= n; i++) {
             while (n % i == 0) {

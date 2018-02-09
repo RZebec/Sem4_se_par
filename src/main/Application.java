@@ -10,6 +10,8 @@ public class Application {
         long rangeEndStartValue = 1;
         long runtimeStart = System.currentTimeMillis();
 
+        System.out.println("Searching for pairs: ");
+
         try {
             final List<Callable<Void>> partitions = new ArrayList<>();
             final ExecutorService executorPool = Executors.newFixedThreadPool(Configuration.instance.numberOfProcessors);
