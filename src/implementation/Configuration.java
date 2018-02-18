@@ -1,3 +1,5 @@
+package implementation;
+
 /**
  * The Configuration for the Search of Consecutive integers and prime factors.
  */

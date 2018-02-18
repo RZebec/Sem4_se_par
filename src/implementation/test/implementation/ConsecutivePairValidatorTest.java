@@ -1,3 +1,6 @@
+package implementation.test.implementation;
+
+import implementation.ConsecutivePairValidator;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -70,13 +73,20 @@ public class ConsecutivePairValidatorTest {
 
         boolean testForConsecutiveNumberPrimeFactorsAndNaturalLogarithm = ConsecutivePairValidator.testForNaturalLogarithm(firstNumber, secondNumber);
 
-        Assert.assertTrue("Should be the same", testForConsecutiveNumberPrimeFactorsAndNaturalLogarithm);
+        Assert.assertTrue("Should be true", testForConsecutiveNumberPrimeFactorsAndNaturalLogarithm);
 
         firstNumber = 4501;
         secondNumber = firstNumber + 1;
 
         testForConsecutiveNumberPrimeFactorsAndNaturalLogarithm = ConsecutivePairValidator.testForNaturalLogarithm(firstNumber, secondNumber);
 
-        Assert.assertFalse("Should be the same", testForConsecutiveNumberPrimeFactorsAndNaturalLogarithm);
+        Assert.assertFalse("Should be true", testForConsecutiveNumberPrimeFactorsAndNaturalLogarithm);
+
+        firstNumber = 2501;
+        secondNumber = firstNumber + 1;
+
+        testForConsecutiveNumberPrimeFactorsAndNaturalLogarithm = ConsecutivePairValidator.testForNaturalLogarithm(firstNumber, secondNumber);
+
+        Assert.assertFalse("Should be false", testForConsecutiveNumberPrimeFactorsAndNaturalLogarithm);
     }
 }

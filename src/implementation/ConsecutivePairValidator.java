@@ -1,3 +1,5 @@
+package implementation;
+
 /**
  * Class for the consecutive pair validator.
  */
